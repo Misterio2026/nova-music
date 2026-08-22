@@ -1,0 +1,873 @@
+/* ===========================================
+   NOVA MUSIC 2.0
+   Estilo Base
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --bg:#070714;
+    --panel:#111629;
+    --panel2:#171d35;
+
+    --cyan:#28C7FF;
+    --purple:#A044FF;
+    --pink:#FF4FD8;
+
+    --white:#ffffff;
+    --text:#d7d7d7;
+
+    --shadow:
+    0 10px 40px rgba(0,0,0,.45);
+
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--bg);
+
+    color:white;
+
+    overflow:hidden;
+
+}
+
+/*==========================
+ Fondo
+===========================*/
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(40,199,255,.18),
+    transparent 35%),
+
+    radial-gradient(circle at bottom right,
+    rgba(160,68,255,.18),
+    transparent 35%),
+
+    linear-gradient(
+    135deg,
+    #070714,
+    #090b19,
+    #0d1023);
+
+    z-index:-2;
+
+}
+
+/*==========================
+ Layout
+===========================*/
+
+.app{
+
+    display:grid;
+
+    grid-template-columns:320px 1fr;
+
+    grid-template-rows:minmax(0, 1fr);
+
+    height:calc(100vh - 95px);
+
+    position:relative;
+
+    z-index:1;
+
+}
+
+/*==========================
+ Sidebar
+===========================*/
+
+.sidebar{
+
+    background:rgba(18,22,40,.75);
+
+    backdrop-filter:blur(18px);
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+    padding:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:0;
+
+    overflow:hidden;
+
+}
+
+/*==========================
+ Logo
+===========================*/
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:35px;
+
+}
+
+.logoCircle{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:26px;
+
+    background:linear-gradient(
+    135deg,
+    var(--cyan),
+    var(--purple));
+
+    box-shadow:
+    0 0 25px rgba(40,199,255,.45);
+
+}
+
+.logo h2{
+
+    font-size:28px;
+
+    letter-spacing:2px;
+
+}
+
+/*==========================
+ Menú
+===========================*/
+
+.menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.menu button{
+
+    background:none;
+
+    border:none;
+
+    color:#d8d8d8;
+
+    font-size:17px;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:.35s;
+
+}
+
+.menu button i{
+
+    width:30px;
+
+}
+
+.menu button:hover{
+
+    background:rgba(255,255,255,.06);
+
+    transform:translateX(8px);
+
+}
+
+.menu .active{
+
+    background:linear-gradient(
+    90deg,
+    rgba(40,199,255,.28),
+    rgba(160,68,255,.18));
+
+    color:white;
+
+}
+
+/*==========================
+ Buscador
+===========================*/
+
+.searchBox{
+
+    margin-top:35px;
+
+    position:relative;
+
+}
+
+.searchBox input{
+
+    width:100%;
+
+    background:#0f1327;
+
+    border:none;
+
+    color:white;
+
+    padding:16px 20px 16px 50px;
+
+    border-radius:18px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+.searchBox i{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    color:#7f87b4;
+
+}
+
+/*==========================
+ Lista canciones
+===========================*/
+
+.songList{
+
+    margin-top:30px;
+
+    flex:1;
+
+    min-height:0;
+
+    overflow-y:auto;
+
+}
+
+.songList::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.songList::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:20px;
+
+}
+/*==========================
+  Panel principal
+===========================*/
+
+.main{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    position:relative;
+
+    min-height:0;
+
+    overflow:auto;
+
+}
+
+/*==========================
+  Portada
+===========================*/
+
+.cover{
+
+    position:relative;
+
+    width:300px;
+
+    height:300px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.glow{
+
+    position:absolute;
+
+    inset:-20px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(40,199,255,.35),
+    rgba(160,68,255,.15),
+    transparent 70%);
+
+    filter:blur(30px);
+
+    animation:glowPulse 4s ease-in-out infinite;
+
+}
+
+#cover{
+
+    width:300px;
+    height:300px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    border:4px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 0 25px rgba(40,199,255,.35),
+    0 0 80px rgba(160,68,255,.20),
+    0 20px 40px rgba(0,0,0,.45);
+
+}
+
+/*==========================
+ Texto
+===========================*/
+
+#title{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.main p{
+
+    color:#a9afd3;
+
+    font-size:18px;
+
+}
+
+/*==========================
+ Visualizador
+===========================*/
+
+.visualizer{
+
+    margin-top:50px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:8px;
+
+    height:90px;
+
+}
+
+.visualizer div{
+
+    width:10px;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+
+    to top,
+
+    var(--cyan),
+
+    var(--purple),
+
+    var(--pink)
+
+    );
+
+    animation:bars 1.2s infinite ease-in-out;
+
+}
+
+/* Con el visualizador real activo, las barras toman su altura por JS (sin la animación decorativa). */
+.visualizer.live div{
+    animation:none;
+    transition:height .08s linear;
+}
+
+.visualizer div:nth-child(1){height:25px;animation-delay:.1s;}
+.visualizer div:nth-child(2){height:55px;animation-delay:.3s;}
+.visualizer div:nth-child(3){height:80px;animation-delay:.5s;}
+.visualizer div:nth-child(4){height:45px;animation-delay:.2s;}
+.visualizer div:nth-child(5){height:75px;animation-delay:.6s;}
+.visualizer div:nth-child(6){height:40px;animation-delay:.4s;}
+.visualizer div:nth-child(7){height:60px;animation-delay:.7s;}
+.visualizer div:nth-child(8){height:30px;animation-delay:.15s;}
+
+/*==========================
+ Footer
+===========================*/
+
+footer{
+
+    height:95px;
+
+    background:rgba(17,22,41,.92);
+
+    backdrop-filter:blur(18px);
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 35px;
+
+}
+
+/*==========================
+ Controles
+===========================*/
+
+.player{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.player button{
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#1b2240;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.player button:hover{
+
+    transform:scale(1.1);
+
+    background:var(--cyan);
+
+    color:#08111f;
+
+}
+
+.play{
+
+    width:70px!important;
+
+    height:70px!important;
+
+    background:linear-gradient(
+
+    135deg,
+
+    var(--cyan),
+
+    var(--purple));
+
+    color:white!important;
+
+}
+
+/*==========================
+ Volumen
+===========================*/
+
+.volume{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.volume i{
+
+    color:var(--cyan);
+
+}
+
+.volume input{
+
+    width:140px;
+
+}
+
+/*==========================
+ Barra de progreso
+===========================*/
+
+#progress{
+
+    width:350px;
+
+    accent-color:#28C7FF;
+
+}
+
+.progressWrap{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+#curTime,#durTime{
+
+    font-size:13px;
+
+    color:#a9afd3;
+
+    min-width:42px;
+
+    text-align:center;
+
+    font-variant-numeric:tabular-nums;
+
+}
+
+/*==========================
+ Animaciones
+===========================*/
+
+@keyframes rotateAlbum{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes glowPulse{
+
+    0%,100%{
+
+        transform:scale(.95);
+
+        opacity:.7;
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes bars{
+
+    0%,100%{
+
+        transform:scaleY(.4);
+
+    }
+
+    50%{
+
+        transform:scaleY(1.3);
+
+    }
+
+}
+/*=========================================
+    TARJETAS DE CANCIONES
+=========================================*/
+
+.songCard{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.songCard:hover{
+
+    transform:translateX(8px) scale(1.02);
+
+    background:rgba(40,199,255,.12);
+
+    box-shadow:
+
+    0 0 25px rgba(40,199,255,.15);
+
+}
+
+.songIcon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    background:linear-gradient(
+
+    135deg,
+
+    var(--cyan),
+
+    var(--purple));
+
+}
+
+.songInfo{
+
+    flex:1;
+
+}
+
+.songInfo h3{
+
+    font-size:17px;
+
+    margin-bottom:5px;
+
+}
+
+.songInfo p{
+
+    color:#8fa3d6;
+
+    font-size:13px;
+
+}
+
+.favorite{
+
+    color:#ffffff55;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    margin-left:8px;
+
+    transition:.3s;
+
+}
+
+.favorite:hover{
+
+    color:#ff4fd8;
+
+    transform:scale(1.2);
+
+}
+
+.favorite.fa-solid{
+
+    color:#ff4fd8;
+
+}
+
+.songCard.playing{
+
+    background:rgba(40,199,255,.15);
+
+    border-color:rgba(40,199,255,.45);
+
+}
+
+.songCard.playing .songIcon{
+
+    box-shadow:0 0 18px rgba(40,199,255,.55);
+
+}
+
+/*=========================================
+    EFECTO DE ESTRELLAS
+=========================================*/
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+    opacity:.25;
+
+    background-image:
+
+    radial-gradient(circle,#ffffff 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    animation:starsMove 120s linear infinite;
+
+}
+
+@keyframes starsMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(500px);
+
+    }
+
+}
+
+/*=========================================
+    BOTONES
+=========================================*/
+
+button{
+
+    font-family:"Poppins",sans-serif;
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/*=========================================
+    SCROLL
+=========================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#3c4678;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
