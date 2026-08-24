@@ -78,13 +78,7 @@ body{
 
     grid-template-columns:320px 1fr;
 
-    grid-template-rows:minmax(0, 1fr);
-
     height:calc(100vh - 95px);
-
-    position:relative;
-
-    z-index:1;
 
 }
 
@@ -105,10 +99,6 @@ body{
     display:flex;
 
     flex-direction:column;
-
-    min-height:0;
-
-    overflow:hidden;
 
 }
 
@@ -277,8 +267,6 @@ body{
 
     flex:1;
 
-    min-height:0;
-
     overflow-y:auto;
 
 }
@@ -313,10 +301,6 @@ body{
     padding:40px;
 
     position:relative;
-
-    min-height:0;
-
-    overflow:auto;
 
 }
 
@@ -438,12 +422,6 @@ body{
 
     animation:bars 1.2s infinite ease-in-out;
 
-}
-
-/* Con el visualizador real activo, las barras toman su altura por JS (sin la animación decorativa). */
-.visualizer.live div{
-    animation:none;
-    transition:height .08s linear;
 }
 
 .visualizer div:nth-child(1){height:25px;animation-delay:.1s;}
@@ -576,30 +554,6 @@ footer{
     width:350px;
 
     accent-color:#28C7FF;
-
-}
-
-.progressWrap{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-}
-
-#curTime,#durTime{
-
-    font-size:13px;
-
-    color:#a9afd3;
-
-    min-width:42px;
-
-    text-align:center;
-
-    font-variant-numeric:tabular-nums;
 
 }
 
@@ -752,10 +706,6 @@ footer{
 
     font-size:20px;
 
-    cursor:pointer;
-
-    margin-left:8px;
-
     transition:.3s;
 
 }
@@ -765,26 +715,6 @@ footer{
     color:#ff4fd8;
 
     transform:scale(1.2);
-
-}
-
-.favorite.fa-solid{
-
-    color:#ff4fd8;
-
-}
-
-.songCard.playing{
-
-    background:rgba(40,199,255,.15);
-
-    border-color:rgba(40,199,255,.45);
-
-}
-
-.songCard.playing .songIcon{
-
-    box-shadow:0 0 18px rgba(40,199,255,.55);
 
 }
 
@@ -799,8 +729,6 @@ body::after{
     position:fixed;
 
     inset:0;
-
-    z-index:-1;
 
     pointer-events:none;
 
